@@ -1,0 +1,149 @@
+.app-header {
+    padding-top  : 15px;
+    align-items  : center;
+    align-content: center;
+    z-index      : 10;
+    transition   : all 0.2s;
+    /* position  : absolute; */
+    position     : fixed;
+    width        : 100%;
+
+    .header {
+        .ant-row {
+            height: 50px;
+        }
+    }
+
+    .logo-text {
+        font-size  : 32px;
+        color      : black;
+        font-weight: bold;
+
+    }
+
+    .logo-detail {
+        font-size  : 24px;
+        color      : black;
+        font-weight: bold;
+    }
+
+    .app-search {
+        width        : 70%;
+        height       : 40px;
+        border-radius: 4px;
+    }
+
+    .login {
+        height       : 3em;
+        border-radius: 8px;
+    }
+}
+
+.menu {
+    margin-top      : 10px;
+    height          : 50px;
+    background-color: black;
+    position        : relative;
+
+    ul {
+        background-color: black;
+        color           : white;
+        position        : absolute;
+        right           : 3em;
+
+        li {
+            font-size: 18px;
+        }
+
+    }
+
+}
+
+.google-btn {
+
+    &,
+    &:focus,
+    &:active {
+        height       : 48px;
+        background   : #ffffff;
+        border       : 2px solid #2d9cdb !important;
+        box-sizing   : border-box;
+        border-radius: 8px !important;
+        overflow     : hidden;
+        margin-bottom: 20px;
+        outline      : none;
+        box-shadow   : none !important;
+    }
+
+    span {
+        width      : 100%;
+        font-weight: 600 !important;
+        font-size  : 14px;
+        line-height: 16px;
+        text-align : center;
+        color      : #4f4f4f;
+        position   : absolute;
+    }
+
+    svg {
+        zoom       : 1.5;
+        margin-left: 3px;
+    }
+}
+
+.modal-login {
+    .ant-modal-footer {
+        display: none;
+    }
+
+    .ant-modal-close-icon {
+        color: white;
+    }
+
+    .login-form {
+        button {
+            width: 100%;
+        }
+    }
+
+    .face-btn {
+
+        &,
+        &:focus,
+        &:active {
+            font-family  : Roboto, sans-serif;
+            font-weight  : 600;
+            font-size    : 14px;
+            line-height  : 16px;
+            color        : #4F4F4F;
+            text-align   : center;
+            position     : relative;
+            height       : 48px;
+            background   : #ffffff;
+            border       : 2px solid #2d9cdb !important;
+            box-sizing   : border-box;
+            border-radius: 8px !important;
+            outline      : none;
+        }
+
+        img {
+            width   : 24px;
+            height  : 24px;
+            position: absolute;
+            left    : 16px;
+            top     : 10px;
+        }
+    }
+
+    .ant-modal-content {
+        outline: none !important;
+    }
+
+    .ant-modal-header {
+        background: #983EFD;
+    }
+
+    .ant-modal-title {
+        color: #ffffff;
+    }
+}
