@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Menu } from "antd";
 import "antd/dist/antd.css";
 import "../../../assets/styles/sidebar.scss";
-// import consts from '../../../routers/consts';
 
 const { SubMenu } = Menu;
 

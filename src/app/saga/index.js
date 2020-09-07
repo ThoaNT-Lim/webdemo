@@ -1,6 +1,6 @@
 import * as action from "../action";
 import Axios from "axios";
-import { call, get, put, takeLatest, all } from "redux-saga/effects";
+import { call, put, takeLatest, all } from "redux-saga/effects";
 import { PRODUCT_ACTION } from "../const";
 
 const getAllProductAPI = () => {

@@ -2,7 +2,6 @@ import React, { Fragment, useCallback, useEffect } from "react";
 import Header from "./comp/header";
 import SideBarDashboard from "./comp/sidebar";
 import { Card, Button } from "antd";
-import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getAllProduct, handleGetAllProduct } from "../action";

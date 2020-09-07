@@ -2,8 +2,7 @@ import { Modal, Spin } from "antd";
 import GoogleLogin from "react-google-login";
 import FacebookLogin from "react-facebook-login";
 import facebook from "../../../assets/images/facebook.svg";
-import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
+import React, {useState } from "react";
 
 const LoginModal = ({ visible, setVisible }) => {
   const [provider, setProvider] = useState("");

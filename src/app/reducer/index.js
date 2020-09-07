@@ -1,4 +1,4 @@
-import { PRODUCT_ACTION, HANDLE_GET_ALL_PRODUCT } from "../const";
+import { PRODUCT_ACTION } from "../const";
 
 const initialState = {
   dataAllProduct: [],
