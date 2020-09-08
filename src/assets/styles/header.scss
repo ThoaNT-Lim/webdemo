@@ -37,6 +37,28 @@
         height       : 3em;
         border-radius: 8px;
     }
+    .anticon svg {
+        width: 2em !important;
+        height: 2em;
+        display: inline-block;
+    }
+    .number-item-in-cart {
+        display: inline-block;
+        cursor: pointer;
+        position: relative;
+    border-radius: 2.75rem;
+    min-width: .6875rem;
+    line-height: 1.2em;
+    padding: 0 .3125rem;
+    text-align: center;
+    height: 1rem;
+    border: .125rem solid #ee4d2d;
+    color: #ee4d2d;
+    background-color: #fff;
+    left: -0.44rem;
+    top: -1rem;
+    margin-right: -.875rem;
+    }
 }
 
 .menu {
@@ -44,7 +66,9 @@
     height          : 50px;
     background-color: black;
     position        : relative;
-
+    .cart {
+        display: none;
+    }
     ul {
         background-color: black;
         color           : white;
@@ -146,4 +170,37 @@
     .ant-modal-title {
         color: #ffffff;
     }
+}
+@media (max-width: 700px) {
+    .app-header {
+        .header{
+        .logo-text {
+        font-size  : 24px;
+    }
+    .cart {
+        display: none;
+    }
+}
+.menu {
+    .cart {
+        display: inline-block;
+    position: absolute;
+    right:  14px;
+    top: 0.7em;
+    width: 37px;
+    svg {
+        color: white;
+    }
+    }
+        ul {
+            right: 5rem !important;
+        }
+           ul li {
+                font-size: 16px;
+                padding: 0px;
+                margin: 0px 10px !important;
+            }
+          
+    }
+}
 }

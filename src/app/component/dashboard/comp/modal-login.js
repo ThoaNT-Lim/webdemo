@@ -1,7 +1,7 @@
 import { Modal, Spin } from "antd";
 import GoogleLogin from "react-google-login";
 import FacebookLogin from "react-facebook-login";
-import facebook from "../../../assets/images/facebook.svg";
+import facebook from "../../../../assets/images/facebook.svg";
 import React, {useState } from "react";
 
 const LoginModal = ({ visible, setVisible }) => {
@@ -27,7 +27,6 @@ const LoginModal = ({ visible, setVisible }) => {
       title="Đăng nhập"
       autoFocus={false}
     >
-      <Spin>
         <div className="login-form">
           <GoogleLogin
             className="google-btn"
@@ -49,7 +48,6 @@ const LoginModal = ({ visible, setVisible }) => {
             callback={responseFacebook}
           />
         </div>
-      </Spin>
     </Modal>
   );
 };

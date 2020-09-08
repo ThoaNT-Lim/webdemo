@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Menu } from "antd";
 import "antd/dist/antd.css";
-import "../../../assets/styles/sidebar.scss";
+import "../../../../assets/styles/sidebar.scss";
 
 const { SubMenu } = Menu;
 

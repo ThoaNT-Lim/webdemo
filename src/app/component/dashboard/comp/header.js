@@ -1,18 +1,22 @@
 import React, { Fragment, useState } from "react";
+import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
 import { Row, Col, Input, Button } from "antd";
 import { Menu } from "antd";
+import { ShoppingCartOutlined } from '@ant-design/icons';
 import LoginModal from "./modal-login";
 
 import "antd/dist/antd.css";
-import "../../../assets/styles/header.scss";
+import "../../../../assets/styles/header.scss";
+import {addToCart} from '../action';
 
 const { SubMenu } = Menu;
 
 const { Search } = Input;
-const Header = () => {
+const Header = (cartItem) => {
   const [current, setCurrent] = useState("dashboard");
   const [visible, setVisible] = useState(false);
+  console.log(cartItem);
   const handleClick = (e) => {
     console.log("click ", e);
     setCurrent(e.key);
@@ -34,7 +38,7 @@ const Header = () => {
                 onSearch={(value) => console.log(value)}
               />
             </Col>
-            <Col span={6}>
+            <Col span={3}>
               <Button
                 onClick={() => setVisible(!visible)}
                 type="primary"
@@ -42,6 +46,12 @@ const Header = () => {
               >
                 Đăng nhập
               </Button>
+            </Col>
+            <Col span={3} className="cart">
+              <Link to='/cart'>
+              <ShoppingCartOutlined />
+              <div className="number-item-in-cart">{cartItem.cartItem.length}</div>
+              </Link>
             </Col>
           </Row>
         </div>
@@ -68,11 +78,16 @@ const Header = () => {
             <Menu.Item key="blog">Blog</Menu.Item>
             <Menu.Item key="contact">Liên hệ</Menu.Item>
           </Menu>
+          <div className="cart">
+              <Link to='/cart'>
+                <ShoppingCartOutlined />
+                <div className="number-item-in-cart">{cartItem.cartItem.length}</div>
+                </Link>
+            </div>
         </div>
         <LoginModal visible={visible} setVisible={setVisible} />
       </div>
     </Fragment>
   );
 };
-
 export default Header;

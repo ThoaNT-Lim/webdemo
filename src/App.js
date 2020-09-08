@@ -2,8 +2,9 @@ import React, { Fragment } from 'react';
 import ResizeDetector from 'react-resize-detector';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
-import Dashboard from './app/component/';
-import ScrollToTop from './app/component/comp/scroll-to-top';
+import Dashboard from './app/component/dashboard';
+import ScrollToTop from './app/component/dashboard/comp/scroll-to-top';
+import Cart from './app/component/cart';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Fragment>
               <Switch>
               <Route path="/dashboard" component={Dashboard} exact />
+              <Route path="/cart" component={Cart} exact />
               <Route
                 exact
                 path="/"

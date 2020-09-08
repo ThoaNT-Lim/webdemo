@@ -1,17 +1,23 @@
-import React, { Fragment, useCallback, useEffect } from "react";
+import React, { Fragment, useCallback, useEffect, useState } from "react";
 import Header from "./comp/header";
 import SideBarDashboard from "./comp/sidebar";
 import { Card, Button } from "antd";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { getAllProduct, handleGetAllProduct } from "../action";
+import { getAllProduct, handleGetAllProduct } from "./action";
 
 import "antd/dist/antd.css";
-import "../../assets/styles/base.scss";
+import "../../../assets/styles/base.scss";
+import { PRODUCT_ACTION } from "./const";
 
 const { Meta } = Card;
 
-const Dashboard = ({ getAllProduct, handleGetAllProduct, dataAllProduct }) => {
+const Dashboard = ({ getAllProduct, handleGetAllProduct, dataAllProduct}) => {
+  const [ cartItem, setCartItem ] = useState([]);
+
+  const addToCart = (key) => {
+    return setCartItem(cartItem.concat(key));
+  }
   const getAllProductData = useCallback(() => {
     handleGetAllProduct({
       dataQuizAllType: [],
@@ -21,14 +27,15 @@ const Dashboard = ({ getAllProduct, handleGetAllProduct, dataAllProduct }) => {
   useEffect(() => {
     getAllProductData();
   }, [getAllProductData]);
+
   return (
     <Fragment>
-      <Header />
+      <Header cartItem={cartItem}/>
       <div className="app-main">
         <SideBarDashboard />
         <div className="app-main_outer">
           <div className="panel">
-            <div className="grid-frame">
+            <div className="product">
               {dataAllProduct &&
                 dataAllProduct.map((item, index) => {
                   return (
@@ -39,9 +46,9 @@ const Dashboard = ({ getAllProduct, handleGetAllProduct, dataAllProduct }) => {
                       cover={<img alt="product" src={item.imageUrl} />}
                     >
                       <Meta title={item.name} discription={item.discription} />
-                      <Button type="primary" className="submit" danger>
-                        Add to card
-                      </Button>
+                         <Button onClick= {() => addToCart(item)} type="primary" className="submit" danger>
+                         Add to card
+                       </Button>
                     </Card>
                   );
                 })}
@@ -59,8 +66,7 @@ Dashboard.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
-  const dataAllProduct = state.dataAllProduct;
+  const dataAllProduct= state.dataAllProduct;
   return {
     dataAllProduct,
   };

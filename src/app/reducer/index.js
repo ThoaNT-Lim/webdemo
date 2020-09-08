@@ -1,7 +1,24 @@
-import { PRODUCT_ACTION } from "../const";
+// import { connectRouter } from 'connected-react-router';
+// import { combineReducers } from 'redux';
+
+// import reducerDashboard from '../component/dashboard/reducer';
+// import cartReducer from '../component/cart/'
+
+
+// const quizReducer = {
+//   reducerDashboard: reducerDashboard,
+
+// };
+
+// const rootReducer = () => combineReducers({ ...quizReducer });
+
+// export default rootReducer;
+
+import { PRODUCT_ACTION } from "../component/dashboard/const";
 
 const initialState = {
   dataAllProduct: [],
+  dataCart: [],
 };
 const rootReducer = (state = initialState, action) => {
   // console.log('reducer action type', action.type);
@@ -14,9 +31,19 @@ const rootReducer = (state = initialState, action) => {
         dataAllProduct,
       };
     }
+    case PRODUCT_ACTION.ADD_TO_CART: {
+      return {
+        ...state,
+        dataCart: state.dataCart,
+      }
+    }
     default:
       return state;
   }
 };
 
+// export default productReducer;
+
 export default rootReducer;
+
+
