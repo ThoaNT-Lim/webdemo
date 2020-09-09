@@ -5,6 +5,7 @@ import './App.css';
 import Dashboard from './app/component/dashboard';
 import ScrollToTop from './app/component/dashboard/comp/scroll-to-top';
 import Cart from './app/component/cart';
+import Toner from './app/component/page/toner';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
               <Switch>
               <Route path="/dashboard" component={Dashboard} exact />
               <Route path="/cart" component={Cart} exact />
+              <Route path="/product/toner" component={Toner} exact />
               <Route
                 exact
                 path="/"

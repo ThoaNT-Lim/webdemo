@@ -4,20 +4,18 @@ import SideBarDashboard from "./comp/sidebar";
 import { Card, Button } from "antd";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { getAllProduct, handleGetAllProduct } from "./action";
+import { getAllProduct, handleGetAllProduct, handleCart } from "./action";
 
 import "antd/dist/antd.css";
 import "../../../assets/styles/base.scss";
 import { PRODUCT_ACTION } from "./const";
+import {addToCart} from "../cart/action";
 
 const { Meta } = Card;
 
-const Dashboard = ({ getAllProduct, handleGetAllProduct, dataAllProduct}) => {
-  const [ cartItem, setCartItem ] = useState([]);
+const Dashboard = ({ getAllProduct, handleGetAllProduct, dataAllProduct, addToCart, dataCart, number}) => {
+  // const [ cartItem, setCartItem ] = useState([]);
 
-  const addToCart = (key) => {
-    return setCartItem(cartItem.concat(key));
-  }
   const getAllProductData = useCallback(() => {
     handleGetAllProduct({
       dataQuizAllType: [],
@@ -27,10 +25,18 @@ const Dashboard = ({ getAllProduct, handleGetAllProduct, dataAllProduct}) => {
   useEffect(() => {
     getAllProductData();
   }, [getAllProductData]);
-
+  
+  const handleClick = (item) => {
+    addToCart(item);
+  }
   return (
     <Fragment>
-      <Header cartItem={cartItem}/>
+      <Header />
+      {/* <div>
+        <ul>
+          {namesList}
+        </ul>
+      </div> */}
       <div className="app-main">
         <SideBarDashboard />
         <div className="app-main_outer">
@@ -46,7 +52,7 @@ const Dashboard = ({ getAllProduct, handleGetAllProduct, dataAllProduct}) => {
                       cover={<img alt="product" src={item.imageUrl} />}
                     >
                       <Meta title={item.name} discription={item.discription} />
-                         <Button onClick= {() => addToCart(item)} type="primary" className="submit" danger>
+                         <Button onClick = {() => handleClick(item)} type="primary" className="submit" danger>
                          Add to card
                        </Button>
                     </Card>
@@ -63,17 +69,23 @@ Dashboard.propTypes = {
   getAllProduct: PropTypes.func,
   handleGetAllProduct: PropTypes.func,
   dataAllProduct: PropTypes.array,
+  dataCart: PropTypes.array,
 };
 
 const mapStateToProps = (state) => {
-  const dataAllProduct= state.dataAllProduct;
+  const dataAllProduct= state.reducerDashboard.dataAllProduct;
+  const dataCart = state.cartReducer.cart;
+  console.log(dataCart, '1');
   return {
     dataAllProduct,
+    // dataCart,
+    dataCart,
   };
 };
 
 const mapDispatchToProps = {
   getAllProduct,
   handleGetAllProduct,
+  addToCart,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

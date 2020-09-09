@@ -2,7 +2,6 @@ import { PRODUCT_ACTION } from "./const";
 
 const initialState = {
   dataAllProduct: [],
-  dataCart: [],
 };
 const reducerDashboard = (state = initialState, action) => {
   // console.log('reducer action type', action.type);

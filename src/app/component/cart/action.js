@@ -1,21 +1,30 @@
-import CART_ACTION from './const';
+import { ADD_TO_CART,REMOVE_ITEM,SUB_QUANTITY,ADD_QUANTITY,ADD_SHIPPING} from './const';
 
-export const addToCart = (item) => {
-    return { type: CART_ACTION.ADD_TO_CART, item};
+//add cart action
+export const addToCart= (id)=>{
+    return{
+        type: ADD_TO_CART, 
+        id
+    }
 }
-
-export const handleCart = (resp) => {
-    return { type: CART_ACTION.HANDLE_CART, resp };
+//remove item action
+export const removeItem=(id)=>{
+    return{
+        type: REMOVE_ITEM,
+        id
+    }
 }
-
-export const getAllItem = () => {
-    return { type: CART_ACTION.GET_ALL_ITEM };
+//subtract qt action
+export const subtractQuantity=(id)=>{
+    return{
+        type: SUB_QUANTITY,
+        id
+    }
 }
-
-export const handleGetAllItem = (resp) => {
-    return { type: CART_ACTION.HANDLE_GET_ALL_ITEM };
+//add qt action
+export const addQuantity=(id)=>{
+    return{
+        type: ADD_QUANTITY,
+        id
+    }
 }
-
-export const handleResponseError = (params) => {
-    return { type: USER_ACTION.HANDLE_RESPONSE_ERROR, params };
-  };

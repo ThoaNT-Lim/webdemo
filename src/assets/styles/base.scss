@@ -1,66 +1,72 @@
 * {
-  margin: 0px;
+  margin : 0px;
   padding: 0px;
 }
 
 .app-main {
   background-color: #ffffff;
-  position: fixed;
-  height: 100vh;
+  position        : fixed;
+  height          : 100vh;
   /* display      : flex; */
-  z-index: 20;
-  overflow: hidden;
-  min-width: 270px;
-  flex: 0 0 270px;
-  margin-top: 125px;
-  margin-left: 30px;
-  padding-top: 20px;
-  transition: all 0.2s;
-  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.12) !important;
+  z-index         : 20;
+  overflow        : hidden;
+  min-width       : 270px;
+  flex            : 0 0 270px;
+  margin-top      : 125px;
+  margin-left     : 30px;
+  padding-top     : 20px;
+  transition      : all 0.2s;
+  box-shadow      : 0px 4px 24px rgba(0, 0, 0, 0.12) !important;
 
   .app-main_outer {
-    height: 100%;
-    overflow: scroll;
-    width: 100%;
+    height        : 100%;
+    overflow      : scroll;
+    width         : 100%;
     padding-bottom: 60px;
-    padding-top: 25px;
-    z-index: 9;
-    padding-left: 250px;
-    flex: 1;
+    padding-top   : 25px;
+    z-index       : 9;
+    padding-left  : 250px;
+    flex          : 1;
     flex-direction: column;
-    display: flex;
-    z-index: 12;
+    display       : flex;
+    z-index       : 12;
 
     .panel {
       background-color: #ffffff;
-      min-height: 100vh;
-      width: 100%;
-      padding: 0px 25px;
+      min-height      : 100vh;
+      width           : 100%;
+      padding         : 0px 25px;
 
       .product {
-        display: flex;
-        flex-wrap: wrap;
+        display           : flex;
+        flex-wrap         : wrap;
         // justify-content: space-evenly;
-        padding-bottom: 200px;
+        padding-bottom    : 200px;
+
         .ant-card {
           margin: 10px 6px;
+
           .ant-card-cover {
             img {
-              width: 240px;
+              width : 240px;
               height: 180px;
+
               @media (max-width: 553px) {
-                width: 100% !important;
+                width : 100% !important;
                 height: 100% !important;
               }
             }
           }
+
           @media (max-width: 553px) {
             width: 80% !important;
           }
+
           @media (max-width: 460px) {
             width: 100% !important;
           }
         }
+
         @media (max-width: 836px) {
           justify-content: space-evenly;
         }
@@ -73,13 +79,15 @@
 
     .panel .row {
       align-items: center;
-      display: flex;
-      flex-wrap: wrap;
+      display    : flex;
+      flex-wrap  : wrap;
     }
+
     @media (max-width: 851px) {
       padding-left: 0px;
     }
   }
+
   @media (max-width: 851px) {
     margin-left: 0px;
   }

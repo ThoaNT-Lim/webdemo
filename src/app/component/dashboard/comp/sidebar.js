@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Menu } from "antd";
+import { Link } from 'react-router-dom';
 import "antd/dist/antd.css";
 import "../../../../assets/styles/sidebar.scss";
 
@@ -31,7 +32,9 @@ const SideBarDashboard = (props) => {
             </span>
           }
         >
-          <Menu.Item key="skin1">Toner</Menu.Item>
+          <Menu.Item key="skin1">
+            <Link to='/product/toner'>Toner</Link>
+          </Menu.Item>
           <Menu.Item key="skin2">Lotion</Menu.Item>
           <Menu.Item key="skin3">Cream</Menu.Item>
         </SubMenu>

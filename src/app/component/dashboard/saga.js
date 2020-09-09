@@ -15,14 +15,12 @@ function* getAllProduct() {
     yield put(
       action.handleGetAllProduct({
         dataAllProduct: data || [],
-        dataItem: [],
       })
     );
   } else if (error) {
     yield put(
       action.handleGetAllProduct({
         dataAllProduct: [],
-        dataItem: [],
       })
     );
   }

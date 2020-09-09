@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { connect } from 'react-redux';
+import { connect, useSelector, useDispatch } from 'react-redux';
 import { Link } from "react-router-dom";
 import { Row, Col, Input, Button } from "antd";
 import { Menu } from "antd";
@@ -9,18 +9,24 @@ import LoginModal from "./modal-login";
 import "antd/dist/antd.css";
 import "../../../../assets/styles/header.scss";
 import {addToCart} from '../action';
+import { search } from "../../search/action";
 
 const { SubMenu } = Menu;
 
 const { Search } = Input;
-const Header = (cartItem) => {
+const Header = () => {
   const [current, setCurrent] = useState("dashboard");
   const [visible, setVisible] = useState(false);
-  console.log(cartItem);
+  const [word, setWord] = useState('');
   const handleClick = (e) => {
     console.log("click ", e);
     setCurrent(e.key);
   };
+
+  const dataCart = useSelector(state => state.cartReducer.cart);
+  const dataSearch = useSelector(state => state.searchReducer.dataSearch);
+  const dispatch = useDispatch();
+  console.log(dataCart);
   return (
     <Fragment>
       <div className="app-header">
@@ -36,6 +42,8 @@ const Header = (cartItem) => {
                 className="app-search"
                 placeholder="Tìm kiếm"
                 onSearch={(value) => console.log(value)}
+                onChange={(e) => dispatch.search(e.target.value)}
+                value = {word}
               />
             </Col>
             <Col span={3}>
@@ -50,7 +58,7 @@ const Header = (cartItem) => {
             <Col span={3} className="cart">
               <Link to='/cart'>
               <ShoppingCartOutlined />
-              <div className="number-item-in-cart">{cartItem.cartItem.length}</div>
+              <div className="number-item-in-cart">{dataCart.length}</div>
               </Link>
             </Col>
           </Row>
@@ -81,7 +89,7 @@ const Header = (cartItem) => {
           <div className="cart">
               <Link to='/cart'>
                 <ShoppingCartOutlined />
-                <div className="number-item-in-cart">{cartItem.cartItem.length}</div>
+                <div className="number-item-in-cart"></div>
                 </Link>
             </div>
         </div>
