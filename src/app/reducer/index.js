@@ -3,9 +3,10 @@ import { combineReducers } from 'redux';
 
 import reducerDashboard from '../component/dashboard/reducer';
 import cartReducer from '../component/cart/reducer';
+import searchReducer from '../component/search/reducer';
 
 
-const rootReducer = combineReducers({ reducerDashboard, cartReducer })
+const rootReducer = combineReducers({ reducerDashboard, cartReducer, searchReducer })
 
 export default rootReducer;
 

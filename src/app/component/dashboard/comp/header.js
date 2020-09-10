@@ -5,6 +5,7 @@ import { Row, Col, Input, Button } from "antd";
 import { Menu } from "antd";
 import { ShoppingCartOutlined } from '@ant-design/icons';
 import LoginModal from "./modal-login";
+import SearchBar from "../../search/searchBar";
 
 import "antd/dist/antd.css";
 import "../../../../assets/styles/header.scss";
@@ -17,16 +18,14 @@ const { Search } = Input;
 const Header = () => {
   const [current, setCurrent] = useState("dashboard");
   const [visible, setVisible] = useState(false);
-  const [word, setWord] = useState('');
+
   const handleClick = (e) => {
     console.log("click ", e);
     setCurrent(e.key);
   };
 
   const dataCart = useSelector(state => state.cartReducer.cart);
-  const dataSearch = useSelector(state => state.searchReducer.dataSearch);
   const dispatch = useDispatch();
-  console.log(dataCart);
   return (
     <Fragment>
       <div className="app-header">
@@ -38,13 +37,7 @@ const Header = () => {
               </Link>
             </Col>
             <Col span={12}>
-              <Search
-                className="app-search"
-                placeholder="Tìm kiếm"
-                onSearch={(value) => console.log(value)}
-                onChange={(e) => dispatch.search(e.target.value)}
-                value = {word}
-              />
+             <SearchBar />
             </Col>
             <Col span={3}>
               <Button

@@ -35,7 +35,9 @@ const SideBarDashboard = (props) => {
           <Menu.Item key="skin1">
             <Link to='/product/toner'>Toner</Link>
           </Menu.Item>
-          <Menu.Item key="skin2">Lotion</Menu.Item>
+          <Menu.Item key="skin2">
+            <Link to='/product/lotion'>Lotion</Link>
+          </Menu.Item>
           <Menu.Item key="skin3">Cream</Menu.Item>
         </SubMenu>
         <SubMenu

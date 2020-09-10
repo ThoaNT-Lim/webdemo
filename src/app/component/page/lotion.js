@@ -6,13 +6,13 @@ import SideBarDashboard from '../dashboard/comp/sidebar';
 import { Card, Button } from 'antd';
 
 const Meta = Card;
-const Toner = () => {
+const Lotion = () => {
   const dataCart = useSelector(state => state.cartReducer.cart);
   const dataAllProduct = useSelector(state => state.reducerDashboard.dataAllProduct);
   const addToCart = useDispatch();
   debugger
-  const dataToner = dataAllProduct.filter((state) => state.type === "type 1");
-    console.log(dataToner);
+  const dataLotion = dataAllProduct.filter((state) => state.type === "type 2");
+    console.log(dataLotion);
   const handleClick = (item) => {
     addToCart(item);
   }
@@ -30,8 +30,8 @@ const Toner = () => {
         <div className="app-main_outer">
           <div className="panel">
             <div className="product">
-              {dataToner &&
-                dataToner.map((item, index) => {
+              {dataLotion &&
+                dataLotion.map((item, index) => {
                   return (
                     <Card
                       key={index}
@@ -55,4 +55,4 @@ const Toner = () => {
 
 }
 
-export default Toner;
+export default Lotion;

@@ -5,6 +5,8 @@ import { PRODUCT_ACTION } from "./const";
 
 const getAllProductAPI = () => {
   const path = `https://5f55000e39221c00167facd4.mockapi.io/product`;
+  // const path = `http://localhost:3000/product`;
+
   return Axios.get(path);
 };
 

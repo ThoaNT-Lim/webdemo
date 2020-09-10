@@ -1,7 +1,7 @@
 import React, { Fragment, useCallback, useEffect, useState } from "react";
 import Header from "./comp/header";
 import SideBarDashboard from "./comp/sidebar";
-import { Card, Button } from "antd";
+import { Card, Button, Select } from "antd";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getAllProduct, handleGetAllProduct, handleCart } from "./action";
@@ -10,7 +10,7 @@ import "antd/dist/antd.css";
 import "../../../assets/styles/base.scss";
 import { PRODUCT_ACTION } from "./const";
 import {addToCart} from "../cart/action";
-
+const  {Option} = Select;
 const { Meta } = Card;
 
 const Dashboard = ({ getAllProduct, handleGetAllProduct, dataAllProduct, addToCart, dataCart, number}) => {
@@ -29,6 +29,7 @@ const Dashboard = ({ getAllProduct, handleGetAllProduct, dataAllProduct, addToCa
   const handleClick = (item) => {
     addToCart(item);
   }
+  console.log(dataAllProduct)
   return (
     <Fragment>
       <Header />
@@ -42,6 +43,9 @@ const Dashboard = ({ getAllProduct, handleGetAllProduct, dataAllProduct, addToCa
         <div className="app-main_outer">
           <div className="panel">
             <div className="product">
+              <Select>
+                
+              </Select>
               {dataAllProduct &&
                 dataAllProduct.map((item, index) => {
                   return (
