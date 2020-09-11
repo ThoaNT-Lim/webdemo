@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import {connect, useSelector, useDispatch} from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import { Input } from 'antd';
 import {search} from './action';
@@ -9,7 +9,7 @@ import "../../../assets/styles/header.scss";
 class SearchBar extends Component {
   render() {
     const {search, value, results} = this.props;
-    console.log(results)
+    console.log(results, 'reé')
     const handleSearch = (value) => {
       search(value);
     }
@@ -17,15 +17,11 @@ class SearchBar extends Component {
       <Fragment>
         <Input
           className="app-search"
-          placeholder = "Procurar Trabalho"
+          placeholder = "Tìm kiếm"
           onChange={(e) => search(e.target.value)}
-          onPressEnter={() => handleSearch(value)}
+          onPressEnter={(e) => handleSearch(e.target.value)}
           value={value} />
-          { results.length > 0 && <Redirect to={{
-          pathname: '/search/{value}',
-          // state: { results: this.state }
-        }} />
-      }
+          {console.log(results.length)}
       </Fragment>
     );
   }

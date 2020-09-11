@@ -62,7 +62,9 @@ const Header = () => {
             selectedKeys={[current]}
             mode="horizontal"
           >
-            <Menu.Item key="dashboard">Trang chủ</Menu.Item>
+            <Menu.Item key="dashboard">
+              <Link to='/'>Trang chủ</Link>
+              </Menu.Item>
             <SubMenu title="Product">
               <Menu.ItemGroup title="Skincare">
                 <Menu.Item key="skin1">Toner</Menu.Item>

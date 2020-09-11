@@ -1,29 +1,17 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
+import useSelection from 'antd/lib/table/hooks/useSelection';
 
-class WorkList extends Component {
-  render() {
-    const {works} = this.props;
-
+const ListSearch =  () =>{
     return (
       <table className="table table-hover">
         <thead>
           <tr>
-            <th>Nome</th>
+            <th>None</th>
           </tr>
         </thead>
-        <tbody>{works.map((work) => <tr key={work}><td>{work}</td></tr>)}</tbody>
       </table>
     );
   }
-}
 
-function mapStateToProps({works}) {
-  console.log(works);
-  debugger
-  return {
-    works: works.works
-  }
-}
-
-export default connect(mapStateToProps)(WorkList);
+export default ListSearch;

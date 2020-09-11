@@ -1,16 +1,34 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect, useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { addToCart } from './action'
+import { Card, Button } from 'antd';
 
-const Cart = () => {
-    const number = useSelector(state => state.cartReducer);
-    const dispatch = useDispatch();
-    console.log('number', number)
+const Meta = Card; 
+
+const ItemCart = () => {
+    const dataCart = useSelector(state => state.cartReducer.cart);
 
     return (
-        <h2> cart </h2>
+        <Fragment>
+            <div clasName = 'app-cart'>
+                <h1>Product </h1>
+                <div className="product">
+                {dataCart &&
+                dataCart.map((item) => {
+                  return (
+                      <div>
+                    <span>name: {item.name}  </span>
+                    <span>price: {item.price}</span>
+                    </div>
+                  );
+                })
+            }
+                </div>
+            </div>
+               
+        </Fragment>
     )
 }
 
-export default Cart;
+export default ItemCart;

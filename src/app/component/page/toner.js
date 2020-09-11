@@ -10,7 +10,6 @@ const Toner = () => {
   const dataCart = useSelector(state => state.cartReducer.cart);
   const dataAllProduct = useSelector(state => state.reducerDashboard.dataAllProduct);
   const addToCart = useDispatch();
-  debugger
   const dataToner = dataAllProduct.filter((state) => state.type === "type 1");
     console.log(dataToner);
   const handleClick = (item) => {

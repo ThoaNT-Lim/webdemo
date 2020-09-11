@@ -8,12 +8,15 @@ import { getAllProduct, handleGetAllProduct, handleCart } from "./action";
 
 import "antd/dist/antd.css";
 import "../../../assets/styles/base.scss";
-import { PRODUCT_ACTION } from "./const";
 import {addToCart} from "../cart/action";
-const  {Option} = Select;
 const { Meta } = Card;
 
-const Dashboard = ({ getAllProduct, handleGetAllProduct, dataAllProduct, addToCart, dataCart, number}) => {
+const Dashboard = ({
+   getAllProduct, 
+   handleGetAllProduct,
+    dataAllProduct, 
+    addToCart, 
+  dataSearch}) => {
   // const [ cartItem, setCartItem ] = useState([]);
 
   const getAllProductData = useCallback(() => {
@@ -33,19 +36,25 @@ const Dashboard = ({ getAllProduct, handleGetAllProduct, dataAllProduct, addToCa
   return (
     <Fragment>
       <Header />
-      {/* <div>
-        <ul>
-          {namesList}
-        </ul>
-      </div> */}
       <div className="app-main">
         <SideBarDashboard />
         <div className="app-main_outer">
           <div className="panel">
             <div className="product">
-              <Select>
-                
-              </Select>
+              {/* {dataSearch && dataSearch.map(item => {
+                return (
+                  <Card
+                      hoverable
+                      style={{ width: 240 }}
+                      cover={<img alt="product" src={item.imageUrl} />}
+                    >
+                      <Meta title={item.name} discription={item.discription} />
+                         <Button onClick = {() => handleClick(item)} type="primary" className="submit" danger>
+                         Add to card
+                       </Button>
+                    </Card>
+                );
+              })} */}
               {dataAllProduct &&
                 dataAllProduct.map((item, index) => {
                   return (
@@ -79,6 +88,7 @@ Dashboard.propTypes = {
 const mapStateToProps = (state) => {
   const dataAllProduct= state.reducerDashboard.dataAllProduct;
   const dataCart = state.cartReducer.cart;
+  const dataSearch = state.searchReducer.works;
   console.log(dataCart, '1');
   return {
     dataAllProduct,
