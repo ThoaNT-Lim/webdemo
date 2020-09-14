@@ -8,7 +8,12 @@ import Cart from './app/component/cart';
 import Toner from './app/component/page/toner';
 import WorkList from './app/component/search';
 import Lotion from './app/component/page/lotion';
+import firebase from 'firebase';
 
+firebase.initializeApp({
+  apiKey: "AIzaSyC6PwF3OrymfWSojFizzPWGaxILbxYMLAU",
+  authDomain: "fir-auth-5badd.firebaseapp.com",
+})
 
 function App() {
   return (

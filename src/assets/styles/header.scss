@@ -68,7 +68,7 @@
     height          : 50px;
     background-color: black;
     position        : relative;
-    
+
     .cart {
         display: none;
     }
@@ -173,6 +173,17 @@
 
     .ant-modal-title {
         color: #ffffff;
+    }
+
+    .login-form {
+        .firebaseui-container {
+            max-width: 100%;
+        }
+
+        ul li {
+            display      : inline-block;
+            padding-right: 16px;
+        }
     }
 }
 
